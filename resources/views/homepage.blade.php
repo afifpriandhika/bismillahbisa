@@ -45,11 +45,11 @@
                     <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600">Tentang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600">Masuk</a>
+                    <a class="nav-link" href="{{ route('login') }}" style="color: #FFF2F9; font-weight :600">Masuk</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-light" style="background-color:#FFF2F9; color:#FD7EC2; font-weight :600" type="submit">Daftar</button>
+                <a class="btn btn-light" style="background-color:#FFF2F9; color:#FD7EC2; font-weight :600" href="{{ route('register') }}" role="button">Daftar</a>
             </form>
         </div>
         
@@ -58,8 +58,8 @@
         <center><h4>Bergabung bersama CoCo</h4>
         <h4>Mulai Sekarang!</h4>
         </center>
-        <a class="btn btn-light btn-lg btn-block" style="background-color:#FD7EC2; color:#FFF2F9; font-weight :600; margin-top: 30px;" href="#" role="button">Masuk</a>
-        <a class="btn btn-light btn-lg btn-block" style="background-color:#FD7EC2; color:#FFF2F9; font-weight :600" href="#" role="button">Daftar</a>
+        <a class="btn btn-light btn-lg btn-block" style="background-color:#FD7EC2; color:#FFF2F9; font-weight :600; margin-top: 30px;" href="{{ route('login') }}" role="button">Masuk</a>
+        <a class="btn btn-light btn-lg btn-block" style="background-color:#FD7EC2; color:#FFF2F9; font-weight :600" href="{{ route('register') }}" role="button">Daftar</a>
     </div>
     <div class = "container-right">
         <img src="img/berpelukan.png" alt="" width="100%">
