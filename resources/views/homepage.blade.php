@@ -42,7 +42,7 @@
                     <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600">Beranda</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #FFF2F9; font-weight :600">Tentang</a>
+                    <a class="nav-link" href="{{ route('aboutus') }}" style="color: #FFF2F9; font-weight :600">Tentang</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}" style="color: #FFF2F9; font-weight :600">Masuk</a>
