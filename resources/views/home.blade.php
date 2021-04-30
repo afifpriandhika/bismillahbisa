@@ -1,220 +1,118 @@
-@extends('layouts.admin')
+@extends('layouts.navbar')
 
 @section('main-content')
+<div class="row">
+  <!-- left -->
+  <div class="col-3 pink-background">
+    <center>
+      <img src="{{ url('displayImage/'.$image.'')}}" style="width: 120px; height: 120px; margin-top: 50px" alt="">
+      <h3 style="font-style: poppins; margin-top: 20px; font-size:120%"><b>{{$name}}</b></h3>
+      <h3 style="font-style: poppins, sans-serif; margin-top: 10px; font-size:100%">{{$username}}</h3>
+      <h3 style="font-style: poppins; margin-top: 10px; font-size:100%">xx Following | xx Followers</h3>
+      <h3 style="font-style: poppins; margin-top: 20px; font-size:100%">Selebgram | Singer</h3>
+    </center>
+  </div>
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
-
-    @if (session('success'))
-    <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- middle-->
+  <div class="col-6 middle">
+    <div class="card">
+      <form method="POST" action="{{ route('newPost') }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="form-floating">
+          <div class="row">
+            <div class="col-2">
+              <img src="{{ url('displayImage/'.$image.'')}}" style="width: 60px; height: 60px;   margin-top: 10%; margin-left: 40%; " alt="">
+            </div>
+            <div class="col-10">
+              <div class="card-body">
+                <input type="text" class="form-control" name="story" placeholder="Ceritakan Pengalamanmu/Buat diskusi Baru...">
+              </div>
+              <div class="footer">
+                <ul class="nav ">
+                  <li class="nav-item"><a class="nav-link" href="#">Tambah Foto</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Undang Orang</a></li>
+                  <li class="nav-item ml-auto">
+                    <button type="submit" class="btn btn-primary ml-2">Post</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-    @endif
-
-    @if (session('status'))
-        <div class="alert alert-success border-left-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <div class="row">
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Users -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Users') }}</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['users'] }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <section class="container">
+        <ul class="nav nav-tabs pt-5">
+          <li class="nav-item"><a class="nav-link active" href="#">Posting</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Karya</a></li>
+        </ul>
+      </section>
     </div>
+    <!-- middle bottom -->
+    <div class="white-background">
+      <!-- @yield('extra-content') -->
 
-    <div class="row">
-
-        <!-- Content Column -->
-        <div class="col-lg-6 mb-4">
-
-            <!-- Project Card Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                    <div class="progress mb-4">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                    <div class="progress mb-4">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                    <div class="progress mb-4">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Color System -->
+      <!-- SIMPLE LAYOUT -->
+      <!-- Start Show Post Data-->
+      <!-- @foreach ($posts as $post)
             <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-primary text-white shadow">
-                        <div class="card-body">
-                            Primary
-                            <div class="text-white-50 small">#4e73df</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-success text-white shadow">
-                        <div class="card-body">
-                            Success
-                            <div class="text-white-50 small">#1cc88a</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-info text-white shadow">
-                        <div class="card-body">
-                            Info
-                            <div class="text-white-50 small">#36b9cc</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-warning text-white shadow">
-                        <div class="card-body">
-                            Warning
-                            <div class="text-white-50 small">#f6c23e</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-danger text-white shadow">
-                        <div class="card-body">
-                            Danger
-                            <div class="text-white-50 small">#e74a3b</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-secondary text-white shadow">
-                        <div class="card-body">
-                            Secondary
-                            <div class="text-white-50 small">#858796</div>
-                        </div>
-                    </div>
-                </div>
+              <div class="col-4">
+                <img src="{{ url('displayImage/'.$post->users[0]->images_id.'')}}" style="width: 30px; height: 30px; margin:2px" alt="">
+                {{ $post->users[0]->name }}
+              </div>
+              <div class="col-8">
+                {{ $post->story }}
+              </div>
             </div>
+        @endforeach -->
+      <!-- End Show Post Data-->
 
+      <!-- Start Show Post Data-->
+      <ul class="panel-activity__list">
+        @foreach ($posts as $post)
+        <div class="row">
+          <i class="activity__list__icon fa fa-question-circle-o"></i>
+          <div class="activity__list__header">
+            <img src="{{ url('displayImage/'.$post->users[0]->images_id.'')}}" style="width: 30px; height: 30px; margin:2px" alt="">
+            <a href="#">{{$post->users[0]->name }}</a> Posted the question: <a href="#">{{ $post->story }}</a>
+          </div>
+          <div class="activity__list__body entry-content">
+            <!-- <strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit. Voluptatibus ab a nostrum repudiandae dolorem ut quaerat veniam asperiores, rerum voluptatem magni dolores corporis!
+            <em>Molestiae commodi nesciunt a, repudiandae repellendus ea.</em> -->
+          </div>
+          <div class="activity__list__footer">
+            <a href="#"> <i class="fa fa-thumbs-up"></i>Like</a>
+            <a href="#"> <i class="fa fa-comments"></i>Comment</a>
+            <span> <i class="fa fa-clock"></i>2 hours ago</span>
+          </div>
         </div>
-
-        <div class="col-lg-6 mb-4">
-
-            <!-- Illustrations -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                    <div class="text-center">
-                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{ asset('img/svg/undraw_editable_dywm.svg') }}" alt="">
-                    </div>
-                    <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
-                </div>
-            </div>
-
-            <!-- Approach -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                    <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-            </div>
-
-        </div>
+        @endforeach
+        <!-- End Show Post Data-->
+      </ul>
     </div>
-@endsection
+  </div>
+
+  <!-- right -->
+  <div class="col-3 pink-background">
+    <div class="d-none d-xl-block mr-2 mt-5 right-wrapper">
+      <div class="row">
+        <div class="col-md-12 grid-margin">
+          <div class="card rounded">
+            <div class="card-body">
+              <h6 class="card-title">Trending</h6>
+              <div class="latest-photos">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ml-4 mt-8">
+    <a href="#">
+      <img src="public\img\buat_event.png">
+    </a>
+  </div>
+  @endsection
