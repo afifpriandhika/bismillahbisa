@@ -45,7 +45,7 @@
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn col" class="btn col" style="background-color: #F57ABC; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                                        <button type="submit" class="btn col" style="background-color: #F57ABC; color: white; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                                             {{ __('Daftar Sekarang') }}
                                         </button>
                                     </div>

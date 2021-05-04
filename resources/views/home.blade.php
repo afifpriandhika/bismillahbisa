@@ -31,8 +31,8 @@
                 <ul class="nav ">
                   <li class="nav-item"><a class="nav-link" href="#">Tambah Foto</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Undang Orang</a></li>
-                  <li class="nav-item ml-auto">
-                    <button type="submit" class="btn btn-primary ml-2">Post</button>
+                  <li class="nav-item ml-auto" style="margin-right:20px">
+                    <button type="submit" class="btn col" style="background-color: #F57ABC; color:white" >Kirim</button>
                   </li>
                 </ul>
               </div>
