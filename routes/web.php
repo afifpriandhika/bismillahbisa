@@ -46,4 +46,9 @@ Route::group(['middleware'=>'auth'], function() {
     // Event Controller
     Route::get('/event', [EventController::class, 'index'])->name('event');
     Route::post('/newEvent', [EventController::class, 'newEvent'])->name('newEvent');
+
+    // Profile Controller
+    Route::get('/profil', function(){
+        return view('profil');
+    })->name('profil');
 });
