@@ -22,7 +22,7 @@
     </div>
     <!-- profile detail -->
     <div class="container-left">
-        <img src="{{ url('displayImage/'.$image.'')}}" style="width: 60px; height: 60px;   margin-top: 10%; margin-left: 40%; " alt="">
+        
     </div>
 </body>
 </html>

@@ -14,14 +14,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <!--Fonts -->
+    <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <!-- <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"> -->
-
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/coco.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/coco.css') }}" rel="stylesheet"> -->
 
 </head>
 <body>
@@ -60,7 +60,17 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
+                <div class="dropdown">
+                    <a class="btn btn-light dropdown-toggle"style="background-color:#FD7EC2; color:#FFF2F9"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+                        <a class="dropdown-item" href="{{ route('profil') }}">{{ __('Profil') }}</a>
+                    </div>
+                </div>
+                    <!-- <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color: #FFF2F9; font-weight :600" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -77,7 +87,7 @@
                                 @csrf
                             </form>
                         </div>
-                    </li>
+                    </li> -->
                 @endguest
             </ul>
         </div>
@@ -86,6 +96,7 @@
             @yield('main-content')
         </main>
     </div>
+    
 </body>
 </html>
 </section>
