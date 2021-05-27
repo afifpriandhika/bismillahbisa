@@ -51,4 +51,8 @@ Route::group(['middleware'=>'auth'], function() {
     Route::get('/profil', function(){
         return view('profil');
     })->name('profil');
+
+    Route::get('/admin', function(){
+        return view('/admin/landing_admin');
+    })->name('admin_landing');
 });
